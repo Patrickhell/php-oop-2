@@ -26,19 +26,16 @@ include_once __DIR__ . '/db/dataBase.php';
         </h2>
         <div class="row justify-content-center mb-5">
             <?php
-            foreach ($dogProducts as $product) { ?>
+            foreach ($dogsProducts as $product) { ?>
                 <div class="card col-3 p-0 mx-3 g-4" style="width: 18rem;">
-                    <div class="card-header">
-                        <h4 class="fw-bold">
-                            <?php echo $product->product_type->name; ?>
-                        </h4>
-                        <img src="<?php echo $product->product_type->category->image; ?>" alt="" style="width: 100px;height:80px; border-radius:50%">
-                    </div>
                     <img src="<?php echo $product->image ?>" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title fw-semibold"><?php echo $product->title; ?></h5>
+                        <p><?php echo $product->category->name; ?></p>
+                        <h6><?php echo $product->name ?></h6>
                         <p class="card-text"><?php echo $product->getDescriptionLenght(100); ?></p>
-                        <p class="prezzo" style="color: green"><?php echo $product->price; ?><span> &euro;</span></p>
+                        <p> WARD AND SHELF : <?php echo $product->getPosition(); ?></p>
+                        <button type="button text-white" class="btn btn-success prezzo"><?php echo $product->price; ?><span> &euro;</span></button>
 
                     </div>
                 </div>
@@ -52,28 +49,22 @@ include_once __DIR__ . '/db/dataBase.php';
         </h2>
         <div class="row justify-content-center ">
             <?php
-            foreach ($catProducts as $product) { ?>
+            foreach ($catsProducts as $product) { ?>
                 <div class="card col-3 p-0 mx-3 g-4" style="width: 18rem;">
-                    <div class="card-header">
-                        <h4 class="fw-bold">
-                            <?php echo $product->product_type->name; ?>
-                        </h4>
-                        <img src="<?php echo $product->product_type->category->image ?>" alt="" style="width: 100px;height:80px; border-radius:50%">
-                    </div>
                     <img src="<?php echo $product->image ?>" class="card-img-top" alt="">
                     <div class="card-body">
                         <h5 class="card-title fw-semibold"><?php echo $product->title; ?></h5>
+                        <p><?php echo $product->category->name; ?></p>
+                        <h6><?php echo $product->name ?></h6>
                         <p class="card-text " style="color: gray"><?php echo $product->getDescriptionLenght(100); ?></p>
-                        <p class="prezzo" style="color: green"><?php echo $product->price; ?><span> &euro;</span></p>
-
+                        <p> WARD AND SHELF : <?php echo $product->getPosition(); ?></p>
+                        <button type="button text-white" class="btn btn-success prezzo"><?php echo $product->price; ?><span> &euro;</span></button>
                     </div>
                 </div>
-
             <?php } ?>
         </div>
 
     </div>
-
 </body>
 
 </html>
